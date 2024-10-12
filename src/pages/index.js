@@ -47,21 +47,21 @@ const Home = () => {
 
   const ctext =
     "We use cookies to enhance your experience at Parlour Banquets. By continuing to browse our site at https://parlorbanquet.com/, you consent to our use of cookies for personalized content and improved services. Learn more in our privacy policy.";
-    const giveCookieConsent = () => {
-      setCookie("Name", "Parlor Banquets", { path: "/" });
-      setCookie("location", "2863 Woodbridge Ave, Edison NJ", { path: "/" });
-      setCookie("area", "New Jersey", { path: "/" });
-      setCookie("website", "https://parlorbanquet.com/", { path: "/" });
-      setCookie("best", "Best banquets for all celebrations", { path: "/" });
-      setCookie(
-        "Keywords",
-        "Banquets, Marriage hall, Party hall, Social Gathering, Event Venue, Wedding Reception, Corporate Events, Special Occasions, Banquet Hall Rental, Celebration Venue, Conference Room, Catering Services, Party Venue, Elegant Banquets, Luxury Events, Event Planning, Private Events, Meeting Space, Gathering Space, Festive Events, Holiday Parties, Birthday Parties",
-        { path: "/" }
-      );
+    // const giveCookieConsent = () => {
+    //   setCookie("Name", "Parlor Banquets", { path: "/" });
+    //   setCookie("location", "2863 Woodbridge Ave, Edison NJ", { path: "/" });
+    //   setCookie("area", "New Jersey", { path: "/" });
+    //   setCookie("website", "https://parlorbanquet.com/", { path: "/" });
+    //   setCookie("best", "Best banquets for all celebrations", { path: "/" });
+    //   setCookie(
+    //     "Keywords",
+    //     "Banquets, Marriage hall, Party hall, Social Gathering, Event Venue, Wedding Reception, Corporate Events, Special Occasions, Banquet Hall Rental, Celebration Venue, Conference Room, Catering Services, Party Venue, Elegant Banquets, Luxury Events, Event Planning, Private Events, Meeting Space, Gathering Space, Festive Events, Holiday Parties, Birthday Parties",
+    //     { path: "/" }
+    //   );
     
-      // Redirect to another page after setting cookies
-      window.location.href = "https://parlorbanquet.com/";
-    };
+    //   // Redirect to another page after setting cookies
+    //   // window.location.href = "https://parlorbanquet.com/";
+    // };
     
   
   const sliderRef = useRef(null);
@@ -191,20 +191,20 @@ const Home = () => {
               >
                 Cancel
               </button>
-              <button
-                className="theme-btn-one"
-                style={{
-                  backgroundColor: "#d2ae6d",
-                  border: "none",
-                  color: "white",
-                  padding: "10px 20px",
-                  cursor: "pointer",
-                  fontSize: "14px",
-                }}
-                onClick={giveCookieConsent}
-              >
-                Accept
-              </button>
+              // <button
+              //   className="theme-btn-one"
+              //   style={{
+              //     backgroundColor: "#d2ae6d",
+              //     border: "none",
+              //     color: "white",
+              //     padding: "10px 20px",
+              //     cursor: "pointer",
+              //     fontSize: "14px",
+              //   }}
+              //   onClick={giveCookieConsent}
+              // >
+              //   Accept
+              // </button>
             </div>
           </div>
           <style jsx>{`
