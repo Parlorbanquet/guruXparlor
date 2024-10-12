@@ -43,7 +43,7 @@ const carouselOptions = {
 
 const Home = () => {
   // const [cookies, setCookie] = useCookies(["cookieConsent"]);
-  const [isSticky, setIsSticky] = useState(false);
+  // const [isSticky, setIsSticky] = useState(false);
 
   // const ctext =
     // "We use cookies to enhance your experience at Parlour Banquets. By continuing to browse our site at https://parlorbanquet.com/, you consent to our use of cookies for personalized content and improved services. Learn more in our privacy policy.";
