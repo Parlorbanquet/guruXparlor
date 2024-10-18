@@ -1,6 +1,7 @@
 // pages/_app.js
 import Head from 'next/head';
 import Script from 'next/script';
+import CookieConsentModal from './CookieConsentModal';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -94,7 +95,7 @@ function MyApp({ Component, pageProps }) {
           href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css"
         />
       </Head>
-
+<CookieConsentModal/>
       {/* Initialize GTranslate settings */}
       <Script
         id="gtranslate-settings"

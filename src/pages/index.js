@@ -15,6 +15,7 @@ import GallerySection from "./GallerySection";
 import ContactForm from "./ContactForm";
 // import { Viewer } from "panolens";
 import { useCookies } from "react-cookie";
+import { Router } from "next/router";
 const carouselOptions = {
   infinite: true,
   speed: 500,
@@ -42,28 +43,28 @@ const carouselOptions = {
 };
 
 const Home = () => {
-  // const [cookies, setCookie] = useCookies(["cookieConsent"]);
-  // const [isSticky, setIsSticky] = useState(false);
+  const [cookies, setCookie] = useCookies(["cookieConsent"]);
+  const [isSticky, setIsSticky] = useState(false);
 
-  // const ctext =
-    // "We use cookies to enhance your experience at Parlour Banquets. By continuing to browse our site at https://parlorbanquet.com/, you consent to our use of cookies for personalized content and improved services. Learn more in our privacy policy.";
-    // const giveCookieConsent = () => {
-    //   setCookie("Name", "Parlor Banquets", { path: "/" });
-    //   setCookie("location", "2863 Woodbridge Ave, Edison NJ", { path: "/" });
-    //   setCookie("area", "New Jersey", { path: "/" });
-    //   setCookie("website", "https://parlorbanquet.com/", { path: "/" });
-    //   setCookie("best", "Best banquets for all celebrations", { path: "/" });
-    //   setCookie(
-    //     "Keywords",
-    //     "Banquets, Marriage hall, Party hall, Social Gathering, Event Venue, Wedding Reception, Corporate Events, Special Occasions, Banquet Hall Rental, Celebration Venue, Conference Room, Catering Services, Party Venue, Elegant Banquets, Luxury Events, Event Planning, Private Events, Meeting Space, Gathering Space, Festive Events, Holiday Parties, Birthday Parties",
-    //     { path: "/" }
-    //   );
-    
-    //   // Redirect to another page after setting cookies
-    //   // window.location.href = "https://parlorbanquet.com/";
-    // };
-    
-  
+  const ctext =
+    "We use cookies to enhance your experience at Parlour Banquets. By continuing to browse our site at https://parlorbanquet.com/, you consent to our use of cookies for personalized content and improved services. Learn more in our privacy policy.";
+  const giveCookieConsent = () => {
+    setCookie("Name", "Parlor Banquets", { path: "/" });
+    setCookie("location", "2863 Woodbridge Ave, Edison NJ", { path: "/" });
+    setCookie("area", "New Jersey", { path: "/" });
+    setCookie("website", "https://parlorbanquet.com/", { path: "/" });
+    setCookie("best", "Best banquets for all celebrations", { path: "/" });
+    setCookie(
+      "Keywords",
+      "Banquets, Marriage hall, Party hall, Social Gathering, Event Venue, Wedding Reception, Corporate Events, Special Occasions, Banquet Hall Rental, Celebration Venue, Conference Room, Catering Services, Party Venue, Elegant Banquets, Luxury Events, Event Planning, Private Events, Meeting Space, Gathering Space, Festive Events, Holiday Parties, Birthday Parties",
+      { path: "/" }
+    );
+
+
+    // Redirect to another page after setting cookies
+    // window.location.href = "https://parlorbanquet.com/";
+  };
+
   const sliderRef = useRef(null);
 
   const goToPrev = () => {
@@ -129,102 +130,101 @@ const Home = () => {
           content="https://parlorbanquet.com/assets/images/ogparlor.webp"
         />
       </Head>
-      // {(cookies.location === undefined || cookies.location === "") && (
-      //   <footer className="cookie-footer">
-      //     <div
-      //       className={`footer-content ${isSticky ? "is-sticky" : ""}`}
-      //       style={{
-      //         position: "fixed",
-      //         left: 0,
-      //         bottom: 20,
-      //         right: 0,
-      //         alignItems: "center",
-      //         justifyContent: "space-between",
-      //         padding: "32px 20px",
-      //         backgroundColor: "#000",
-      //         color: "white",
-      //         maxWidth: "1200px", // Adjust based on your container size
-      //         margin: "0 auto", // Center container horizontally
-      //         zIndex: 1005,
-      //         border: "1px solid #c59c5f",
-      //       }}
-      //     >
-      //       <div className="cookie-consent">
-      //         <p
-      //           style={{
-      //             margin: 0,
-      //             color: "#fff",
-      //             textAlign: "justify",
-      //             fontSize: "16px", // Default font size
-      //           }}
-      //         >
-      //           At Parlour Banquets, we are committed to enhancing your browsing
-      //           experience. By continuing to explore our website at
-      //           <a
-      //             href="https://parlorbanquet.com/"
-      //             style={{ color: "#d2ae6d", textDecoration: "underline" }}
-      //           >
-      //             https://parlorbanquet.com/
-      //           </a>
-      //           , you acknowledge and agree to our use of cookies. These cookies
-      //           are used to provide you with a more personalized and efficient
-      //           browsing experience, including tailored content and improved
-      //           services. Your continued use of our site indicates your consent
-      //           to this practice.
-      //         </p>
-      //       </div>
-      //       <div style={{ display: "flex", justifyContent: "flex-end" }}>
-      //         <button
-      //           className="theme-btn-one"
-      //           style={{
-      //             backgroundColor: "#d2ae6d",
-      //             border: "none",
-      //             color: "white",
-      //             padding: "10px 20px",
-      //             cursor: "pointer",
-      //             fontSize: "14px",
-      //             marginRight: "10px", // Space between the buttons
-      //           }}
-      //           onClick={() => {
-      //             /* Handle cancel action */
-      //           }}
-      //         >
-      //           Cancel
-      //         </button>
-      //         // <button
-      //         //   className="theme-btn-one"
-      //         //   style={{
-      //         //     backgroundColor: "#d2ae6d",
-      //         //     border: "none",
-      //         //     color: "white",
-      //         //     padding: "10px 20px",
-      //         //     cursor: "pointer",
-      //         //     fontSize: "14px",
-      //         //   }}
-      //         //   onClick={giveCookieConsent}
-      //         // >
-      //         //   Accept
-      //         // </button>
-      //       </div>
-      //     </div>
-      //     <style jsx>{`
-      //       @media (max-width: 768px) {
-      //         .cookie-consent p {
-      //           font-size: 14px; // Smaller font size for mobile
-      //         }
+      {/* {(cookies.location === undefined || cookies.location === "") && (
+        <footer className="cookie-footer">
+          <div
+            className={`footer-content ${isSticky ? "is-sticky" : ""}`}
+            style={{
+              position: "fixed",
+              left: 0,
+              bottom: 20,
+              right: 0,
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "32px 20px",
+              backgroundColor: "#000",
+              color: "white",
+              maxWidth: "1200px", // Adjust based on your container size
+              margin: "0 auto", // Center container horizontally
+              zIndex: 1005,
+              border: "1px solid #c59c5f",
+            }}
+          >
+            <div className="cookie-consent">
+              <p
+                style={{
+                  margin: 0,
+                  color: "#fff",
+                  textAlign: "justify",
+                  fontSize: "16px", // Default font size
+                }}
+              >
+                At Parlour Banquets, we are committed to enhancing your browsing
+                experience. By continuing to explore our website at
+                <a
+                  href="https://parlorbanquet.com/"
+                  style={{ color: "#d2ae6d", textDecoration: "underline" }}
+                >
+                  https://parlorbanquet.com/
+                </a>
+                , you acknowledge and agree to our use of cookies. These cookies
+                are used to provide you with a more personalized and efficient
+                browsing experience, including tailored content and improved
+                services. Your continued use of our site indicates your consent
+                to this practice.
+              </p>
+            </div>
+            <div style={{ display: "flex", justifyContent: "flex-end" }}>
+              <button
+                className="theme-btn-one"
+                style={{
+                  backgroundColor: "#d2ae6d",
+                  border: "none",
+                  color: "white",
+                  padding: "10px 20px",
+                  cursor: "pointer",
+                  fontSize: "14px",
+                  marginRight: "10px", // Space between the buttons
+                }}
+                onClick={() => {
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                className="theme-btn-one"
+                style={{
+                  backgroundColor: "#d2ae6d",
+                  border: "none",
+                  color: "white",
+                  padding: "10px 20px",
+                  cursor: "pointer",
+                  fontSize: "14px",
+                }}
+                onClick={giveCookieConsent}
+              >
+                Accept
+              </button>
+            </div>
+          </div>
+          <style jsx>{`
+            @media (max-width: 768px) {
+              .cookie-consent p {
+                font-size: 14px; // Smaller font size for mobile
+              }
 
-      //         .theme-btn-one {
-      //           padding: 8px 16px; // Smaller padding for mobile
-      //           font-size: 12px; // Smaller font size for buttons
-      //         }
+              .theme-btn-one {
+                padding: 8px 16px; // Smaller padding for mobile
+                font-size: 12px; // Smaller font size for buttons
+              }
 
-      //         .footer-content {
-      //           padding: 20px 10px; // Adjust container padding for mobile
-      //         }
-      //       }
-      //     `}</style>
-      //   </footer>
-      // )}
+              .footer-content {
+                padding: 20px 10px; // Adjust container padding for mobile
+              }
+            }
+          `}</style>
+        </footer>
+      )} */}
 
       <Events />
 
